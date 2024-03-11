@@ -34,6 +34,13 @@
 
 These instructions will explain how to use the basic directus-migrator command and which arguments are required
 
+## Local development workflow
+1. npm run build
+2. Within `dist`:
+   1. Create a folder `dist` within `dist`
+   2. Copy the contents of `lib/es5` into the `dist/dist`
+3. Run `node bin/cli.js -s staging -t prod --flows` for example.
+
 ## Initilization
 
 No installation neccessary. just run the following command from within the project root
