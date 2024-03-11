@@ -50,36 +50,38 @@ export function directusMigrator(source, target, args) {
                         logger.error("Source and Target Environments are required");
                         return [2 /*return*/];
                     }
-                    if (!(roles || permissions || schema || flows)) return [3 /*break*/, 6];
+                    if (!(roles || permissions || schema || flows)) return [3 /*break*/, 8];
                     if (!schema) return [3 /*break*/, 2];
                     return [4 /*yield*/, schemaMigrator(source, target, force)];
                 case 1: return [2 /*return*/, _b.sent()];
                 case 2:
-                    if (flows) {
-                    }
-                    if (!permissions) return [3 /*break*/, 5];
-                    return [4 /*yield*/, roleMigrator(source, target)];
-                case 3:
-                    adminIds = _b.sent();
-                    return [4 /*yield*/, permissionMigrator(source, target, adminIds)];
+                    if (!flows) return [3 /*break*/, 4];
+                    return [4 /*yield*/, flowsMigrator(source, target)];
+                case 3: return [2 /*return*/, _b.sent()];
                 case 4:
-                    _b.sent();
-                    _b.label = 5;
-                case 5: return [3 /*break*/, 11];
-                case 6: return [4 /*yield*/, schemaMigrator(source, target, force)];
-                case 7:
-                    _b.sent();
+                    if (!permissions) return [3 /*break*/, 7];
                     return [4 /*yield*/, roleMigrator(source, target)];
-                case 8:
+                case 5:
                     adminIds = _b.sent();
                     return [4 /*yield*/, permissionMigrator(source, target, adminIds)];
+                case 6:
+                    _b.sent();
+                    _b.label = 7;
+                case 7: return [3 /*break*/, 13];
+                case 8: return [4 /*yield*/, schemaMigrator(source, target, force)];
                 case 9:
                     _b.sent();
-                    return [4 /*yield*/, flowsMigrator(source, target)];
+                    return [4 /*yield*/, roleMigrator(source, target)];
                 case 10:
-                    _b.sent();
-                    _b.label = 11;
+                    adminIds = _b.sent();
+                    return [4 /*yield*/, permissionMigrator(source, target, adminIds)];
                 case 11:
+                    _b.sent();
+                    return [4 /*yield*/, flowsMigrator(source, target)];
+                case 12:
+                    _b.sent();
+                    _b.label = 13;
+                case 13:
                     logger.info("Migration Completed!");
                     return [2 /*return*/];
             }

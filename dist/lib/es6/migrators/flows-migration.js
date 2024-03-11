@@ -178,9 +178,13 @@ var getFlows = function (environment) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
-var applyOperation = function (operations, environment, index, response) {
-    if (response === void 0) { response = []; }
-    return __awaiter(void 0, void 0, void 0, function () {
+var applyOperation = function (operations_1, environment_1, index_1) {
+    var args_1 = [];
+    for (var _i = 3; _i < arguments.length; _i++) {
+        args_1[_i - 3] = arguments[_i];
+    }
+    return __awaiter(void 0, __spreadArray([operations_1, environment_1, index_1], args_1, true), void 0, function (operations, environment, index, response) {
+        if (response === void 0) { response = []; }
         return __generator(this, function (_a) {
             return [2 /*return*/, new Promise(function (resolve, reject) { return __awaiter(void 0, void 0, void 0, function () {
                     var operation, data, _a;

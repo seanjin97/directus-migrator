@@ -21,7 +21,7 @@ export async function directusMigrator(
       return await schemaMigrator(source, target, force);
     }
     if (flows) {
-
+      return await flowsMigrator(source, target);
     }
     if (permissions) {
       const adminIds = await roleMigrator(source, target);

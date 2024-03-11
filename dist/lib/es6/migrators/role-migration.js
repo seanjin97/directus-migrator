@@ -140,11 +140,11 @@ export function getRoleCategories(source, target) {
     });
 }
 function executeRoleAction(_a) {
-    var method = _a.method, environment = _a.environment, roles = _a.roles, id = _a.id, successMessage = _a.successMessage, failMessage = _a.failMessage;
-    return __awaiter(this, void 0, void 0, function () {
+    return __awaiter(this, arguments, void 0, function (_b) {
         var roleResponse;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        var method = _b.method, environment = _b.environment, roles = _b.roles, id = _b.id, successMessage = _b.successMessage, failMessage = _b.failMessage;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
                 case 0:
                     logger.info("", "Executing ".concat(method, " on ").concat(environment.name, "..."));
                     return [4 /*yield*/, CRUD({
@@ -154,7 +154,7 @@ function executeRoleAction(_a) {
                             data: roles,
                         })];
                 case 1:
-                    roleResponse = _b.sent();
+                    roleResponse = _c.sent();
                     if (!roleResponse)
                         throw new Error(failMessage(roleResponse));
                     logger.info(successMessage(roleResponse.data));

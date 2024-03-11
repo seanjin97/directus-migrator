@@ -82,11 +82,11 @@ export function logErrors(errors, url) {
     });
 }
 export default function CRUD(_a) {
-    var environment = _a.environment, path = _a.path, data = _a.data, params = _a.params, _b = _a.method, method = _b === void 0 ? Method.GET : _b, _c = _a.ignoreErrors, ignoreErrors = _c === void 0 ? false : _c;
-    return __awaiter(this, void 0, void 0, function () {
+    return __awaiter(this, arguments, void 0, function (_b) {
         var url, response, json, e_1;
-        return __generator(this, function (_d) {
-            switch (_d.label) {
+        var environment = _b.environment, path = _b.path, data = _b.data, params = _b.params, _c = _b.method, method = _c === void 0 ? Method.GET : _c, _d = _b.ignoreErrors, ignoreErrors = _d === void 0 ? false : _d;
+        return __generator(this, function (_e) {
+            switch (_e.label) {
                 case 0:
                     url = URL(environment, path, params);
                     logger.debug(JSON.stringify({ url: url, method: method, data: data }));
@@ -98,23 +98,23 @@ export default function CRUD(_a) {
                         //check if response status is empty
                     ];
                 case 1:
-                    response = _d.sent();
+                    response = _e.sent();
                     //check if response status is empty
                     if (response.status === 204) {
                         return [2 /*return*/, false];
                     }
-                    _d.label = 2;
+                    _e.label = 2;
                 case 2:
-                    _d.trys.push([2, 4, , 5]);
+                    _e.trys.push([2, 4, , 5]);
                     return [4 /*yield*/, response.json()];
                 case 3:
-                    json = _d.sent();
+                    json = _e.sent();
                     if (json.errors) {
                         logErrors(json.errors, url);
                     }
                     return [2 /*return*/, json];
                 case 4:
-                    e_1 = _d.sent();
+                    e_1 = _e.sent();
                     logErrors([e_1], url);
                     return [3 /*break*/, 5];
                 case 5: return [2 /*return*/];
@@ -123,10 +123,10 @@ export default function CRUD(_a) {
     });
 }
 export function fileCRUD(_a) {
-    var filePath = _a.filePath, propertyName = _a.propertyName, data = _a.data, id = _a.id, _b = _a.method, method = _b === void 0 ? Method.GET : _b;
-    return __awaiter(this, void 0, void 0, function () {
+    return __awaiter(this, arguments, void 0, function (_b) {
         var directoryPath, file, jsonData, index, index;
-        return __generator(this, function (_c) {
+        var filePath = _b.filePath, propertyName = _b.propertyName, data = _b.data, id = _b.id, _c = _b.method, method = _c === void 0 ? Method.GET : _c;
+        return __generator(this, function (_d) {
             directoryPath = resolve(__dirname, filePath.split("/").slice(0, -1).join("/"));
             file = resolve(__dirname, filePath);
             if (!existsSync(directoryPath)) {

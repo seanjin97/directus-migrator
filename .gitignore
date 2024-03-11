@@ -128,3 +128,6 @@ out
 .pnp.*
 pnpm-lock.yaml
 directus-migrator.config.js
+
+# intellij
+.idea

@@ -170,11 +170,11 @@ function getPermissions(environment) {
     });
 }
 function executePermissionAction(_a) {
-    var method = _a.method, environment = _a.environment, permissions = _a.permissions, id = _a.id, successMessage = _a.successMessage, failMessage = _a.failMessage;
-    return __awaiter(this, void 0, void 0, function () {
+    return __awaiter(this, arguments, void 0, function (_b) {
         var roleResponse;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        var method = _b.method, environment = _b.environment, permissions = _b.permissions, id = _b.id, successMessage = _b.successMessage, failMessage = _b.failMessage;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
                 case 0: return [4 /*yield*/, CRUD({
                         method: method,
                         environment: environment,
@@ -182,7 +182,7 @@ function executePermissionAction(_a) {
                         data: permissions,
                     })];
                 case 1:
-                    roleResponse = _b.sent();
+                    roleResponse = _c.sent();
                     logger.info(successMessage(roleResponse.data));
                     return [2 /*return*/, roleResponse.data];
             }
